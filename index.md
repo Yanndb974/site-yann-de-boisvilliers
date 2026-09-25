@@ -7,19 +7,19 @@ layout: default
 
 {% if photo_path != "" %}<img class="profile-picture" src="{{ photo_path | relative_url }}" alt="Portrait of Yann de Boisvilliers" width="140" height="140">{% endif %}
 
-I am a master's student in sociology and computational social science. I study French continuous news channels, combining a Bourdieusian sociology of journalism with the computational analysis of large broadcast corpora. I am interested in how professional routines, formats and competition between channels shape what becomes news, and in building the tools needed to observe this systematically.
+I am a master's student in sociology and computational social science. I study French continuous news channels, combining sociology of journalism with the computational analysis of large broadcast corpora. I am interested in how professional routines, formats and competition between channels shape what becomes news, and in building the tools needed to observe this systematically.
 
 In 2026–27 I am enrolled in the M2 in Quantitative Sociology and Computational Social Sciences at Institut Polytechnique de Paris, after a first master's year at Université Paris-Dauphine – PSL. I am applying for PhD programmes starting in autumn 2027.
 
-Research interests: sociology of media and journalism; computational social science; text as data; framing and agenda dynamics; public language and collective attention.
+Research interests: sociology of media and journalism; computational social science.
 
 ## Research
 
-**The Laudisi Observatory.** I designed and maintain a pipeline that records, transcribes and analyses the output of French continuous news channels: stream capture, automatic speech recognition, speaker diarisation and OCR of on-screen banners. Banners are collected on BFMTV, CNews, franceinfo and LCI; speech is transcribed on the first three. The first complete corpus covers March 2026: about 2,230 hours of broadcast.
+**The Laudisi Observatory.** I designed and maintain a pipeline that records, transcribes and analyses the output of French continuous news channels: stream capture, automatic speech recognition, speaker diarisation and OCR of on-screen banners. The first complete corpus covers March 2026: about 2,230 hours of broadcast.
 
 The project examines agenda and framing dynamics across channels: how far they converge in the topics they cover and the words they use, which channel takes up a topic first, and who gets to speak on air, including the gap between how often women are seen and how often they are heard.
 
-Methods: topic segmentation (TextTiling) and clustering (HDBSCAN, BERTopic); sentence embeddings (SBERT, CamemBERT); weighted log-odds ratios for lexical specificity (Monroe, Colaresi and Quinn 2008); Jensen–Shannon divergence between channels.
+Methods: topic segmentation and clustering; sentence embeddings.
 
 {% comment %} Quand l'intégration Gallicagram sera publique, ajouter à la fin du premier paragraphe de cette rubrique :
      The transcripts are reused in Gallicagram. {% endcomment %}
@@ -38,7 +38,7 @@ Methods: topic segmentation (TextTiling) and clustering (HDBSCAN, BERTopic); sen
 ## Research experience
 
 * Research intern, computational analysis of the media landscape. Institut des sciences sociales du politique (ENS Paris-Saclay), February–July 2026. Automated collection and quantitative analysis of broadcast data, supervised by Baptiste Coulmont (ENS Paris-Saclay) and Benoît de Courson (LSE).
-* Research stay, London School of Economics, 3–24 June 2026.
+* Research stay, London School of Economics, June 2026.
 * Research assistant, agricultural mobilisations and digital reconfigurations. LISIS, Université Gustave Eiffel (Champs-sur-Marne), March–June 2025. Digital ethnography of agricultural YouTube channels and text analysis of about two million comments, supervised by Baptiste Kotras and Sylvain Brunier.
 * Research assistant, due-diligence regulation. LEDa, Université Paris-Dauphine – PSL, 2024 (three months, one day a week). Contributed to a study of the effects of due-diligence rules (Dodd–Frank Act) on global supply chains, supervised by Ninon Moreau-Kastler.
 
