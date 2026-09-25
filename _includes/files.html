@@ -1,0 +1,14 @@
+{%- comment -%}
+  Repère la photo et le CV déposés dans le dépôt (de préférence à la racine).
+  Définit photo_path et cv_path, vides tant que les fichiers sont absents.
+{%- endcomment -%}
+{%- assign photo_path = "" -%}
+{%- assign cv_path = "" -%}
+{%- for f in site.static_files -%}
+  {%- assign n = f.name | downcase -%}
+  {%- if n == "photo.jpg" or n == "photo.jpeg" or n == "photo.png" or n == "photo.webp" -%}
+    {%- assign photo_path = f.path -%}
+  {%- elsif n == "cv.pdf" -%}
+    {%- assign cv_path = f.path -%}
+  {%- endif -%}
+{%- endfor -%}

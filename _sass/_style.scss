@@ -1,0 +1,190 @@
+@import "vars";
+
+/*
+ * Colours: light by default, dark when the reader's system asks for it
+ */
+
+:root {
+    --paper: #ffffff;
+    --ink: #000000;
+    --name: #272727;
+    --accent: #{$accent};
+    --rule: rgba(0, 0, 0, 0.1);
+    --quote: #333333;
+    --cell-border: #cccccc;
+    --stripe: #f8f8f8;
+    color-scheme: light dark;
+}
+@mixin dark-palette {
+    --paper: #151515;
+    --ink: #e6e6e6;
+    --name: #f2f2f2;
+    --accent: #{$accent-dark};
+    --rule: rgba(255, 255, 255, 0.14);
+    --quote: #bbbbbb;
+    --cell-border: #3d3d3d;
+    --stripe: #1e1e1e;
+}
+@media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+        @include dark-palette;
+    }
+}
+:root[data-theme="dark"] {
+    @include dark-palette;
+}
+
+/*
+ * Basic
+ */
+
+html {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+body {
+    margin: 0;
+    font-family: "Inconsolata", ui-monospace, SFMono-Regular, Menlo, Consolas, "Liberation Mono", monospace;
+    height: 100%;
+    background: var(--paper);
+    color: var(--ink);
+}
+a {
+    text-decoration: none;
+    color: var(--accent);
+}
+a:hover {
+    text-decoration: underline;
+}
+a:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 2px;
+}
+hr {
+    border: 0;
+    height: 0;
+    border-top: 1px solid var(--rule);
+}
+
+/*
+ * Navbar
+ */
+
+#author-name {
+    font-size: 30px;
+    color: var(--name);
+    display: inline-block;
+}
+.navbar {
+    padding: 50px 0 50px 0;
+}
+.navbar-ul {
+    display: inline-block;
+    margin: 0;
+    padding: 5px 0 5px 0;
+    margin-left: 20px;
+}
+.nav-list {
+    list-style-type: none;
+    margin: 0;
+}
+.nav-list + .nav-list::before {
+    content: "/";
+    padding: 0 0.6em;
+    color: var(--ink);
+}
+.alignable {
+    display: inline-block;
+}
+.pull-left {
+    @extend .alignable;
+    float: left;
+}
+.pull-right {
+    @extend .alignable;
+    float: right;
+}
+
+/* Divs */
+
+.container {
+    max-width: $max-width;
+    margin: auto;
+}
+.wrapper {
+    min-height: 100%;
+}
+
+.footer {
+    text-align: center;
+    margin-bottom: 10px;
+    a {
+        color: var(--ink);
+    }
+}
+
+/* Institute Image */
+
+#ins-logo {
+	margin: auto;
+	display: block;
+	max-height: 100px;
+	text-align: center;
+}
+
+/* Mobile */
+
+@media (max-width: 800px) {
+    .container {
+        max-width: $med-width;
+        transition: 0.3s ease all;
+    }
+}
+
+@media (max-width: 650px) {
+    .container {
+        max-width: 83%;
+    }
+    .navbar-ul {
+        margin-top: 5px;
+    }
+}
+
+@media (max-width: 500px) {
+	.navbar {
+		text-align: center;
+		padding: 50px 0px 0px 0px;
+	}
+	#author-name {
+		width: 100%;
+		float: none;
+	}
+	#navlist {
+		padding: 10px 0 10px 0;
+		margin: 0;
+		display: flex;             // aligne les liens sans espace parasite autour des « / »
+		flex-wrap: wrap;
+		justify-content: center;
+		float: none;
+		width: 100%;
+	}
+	#navlist li.alignable {
+		display: inline-block;
+	}
+	#navlist li.pull-left {
+		float: none;
+	}
+	#navlist li.nav-list {
+		margin: 0;
+	}
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .container {
+        transition: none !important;
+    }
+}
+
+@import "typography";
+@import "tables";

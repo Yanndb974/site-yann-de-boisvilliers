@@ -1,0 +1,38 @@
+title: Yann de Boisvilliers
+author: Yann de Boisvilliers
+description: "Master's student in sociology and computational social science at Institut Polytechnique de Paris. Research on French continuous news channels (the Laudisi Observatory)."
+
+# GitHub Pages remplit `url` automatiquement (à renseigner seulement pour un nom de domaine personnel).
+# Dépôt nommé « site-yann-de-boisvilliers » → baseurl "/site-yann-de-boisvilliers".
+# Si le dépôt est renommé <identifiant>.github.io, mettre baseurl: "".
+baseurl: "/site-yann-de-boisvilliers"
+
+markdown: kramdown
+
+# ---------------------------------------------------------------------------
+# PHOTO ET CV : déposer les fichiers à la racine du dépôt, à côté de index.md
+#   photo.jpg (ou .jpeg, .png, .webp) → portrait en haut de la rubrique About
+#   cv.pdf                            → lien « CV » du menu et de la rubrique Contact
+# Tant qu'un fichier manque, la photo ou le lien sont simplement masqués.
+# ---------------------------------------------------------------------------
+
+footer: yes
+footer_url: "https://github.com/ankitsultana/researcher"
+footer_text: "Page design by Ankit Sultana"
+
+sass:
+    style: compressed
+    sass_dir: _sass
+
+# « cv » est un lien spécial : il pointe vers cv.pdf et n'apparaît que si le fichier existe.
+nav:
+ - name: "About"
+   link: "/"
+ - name: "CV"
+   link: "cv"
+ - name: "Contact"
+   link: "/#contact"
+
+exclude:
+ - README.md
+ - LICENSE

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    {%- include files.html -%}
+    {%- if page.description -%}{%- assign desc = page.description -%}{%- else -%}{%- assign desc = site.description -%}{%- endif -%}
+    {%- assign url = page.url | absolute_url %}
+    <title>{% if page.title %}{{ page.title }} | {{ site.title }}{% else %}{{ site.title }}{% endif %}</title>
+    <meta name="description" content="{{ desc | escape }}">
+    <meta name="author" content="{{ site.author }}">
+    <meta name="color-scheme" content="light dark">
+    <link rel="canonical" href="{{ url }}">
+    {%- if page.url == "/404.html" %}
+    <meta http-equiv="refresh" content="5; url={{ '/' | relative_url }}">
+    {%- endif %}
+    <link href="https://fonts.googleapis.com/css?family=Inconsolata:400,700&display=swap" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="{{ '/css/main.css' | relative_url }}">
+    {%- if site.favicon %}
+    <link rel="icon" href="{{ site.favicon | relative_url }}">
+    {%- endif %}
+    <!-- Aperçu du lien (LinkedIn, messageries…) -->
+    <meta property="og:type" content="profile">
+    <meta property="og:title" content="{{ site.title }}">
+    <meta property="og:description" content="{{ desc | escape }}">
+    <meta property="og:url" content="{{ url }}">
+    {%- if photo_path != "" %}
+    <meta property="og:image" content="{{ photo_path | absolute_url }}">
+    {%- endif %}
+    <meta name="twitter:card" content="summary">
+</head>
+<body>
+    <div class="wrapper">
+        <nav class="navbar container" aria-label="Main">
+            <a id="author-name" class="alignable pull-left" href="{{ '/' | relative_url }}">{{ site.title }}</a>
+            <ul id="navlist" class="alignable pull-right navbar-ul">
+            {%- for x in site.nav -%}
+                {%- if x.link == "cv" -%}
+                    {%- if cv_path != "" %}
+                <li class="alignable pull-left nav-list"><a href="{{ cv_path | relative_url }}" target="_blank" rel="noopener">{{ x.name }}</a></li>
+                    {%- endif -%}
+                {%- else %}
+                <li class="alignable pull-left nav-list"><a href="{{ x.link | relative_url }}">{{ x.name }}</a></li>
+                {%- endif -%}
+            {%- endfor %}
+            </ul>
+        </nav>
+        <div style="clear:both"></div>
+        <hr>
+        <main class="container content">
+            {{ content }}
+            {%- if site.footer == true %}
+            <hr>
+            <p class="footer"><a href="{{ site.footer_url }}"><small>{{ site.footer_text }}</small></a></p>
+            {%- endif %}
+        </main>
+    </div>
+</body>
+</html>
