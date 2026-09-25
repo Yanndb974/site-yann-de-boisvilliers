@@ -9,7 +9,7 @@ layout: default
 
 I am a master's student in sociology and computational social science. I study French continuous news channels, combining sociology of journalism with the computational analysis of large broadcast corpora. I am interested in how professional routines, formats and competition between channels shape what becomes news, and in building the tools needed to observe this systematically.
 
-In 2026–27 I am enrolled in the M2 in Quantitative Sociology and Computational Social Sciences at Institut Polytechnique de Paris, after a first master's year at Université Paris-Dauphine – PSL. I am applying for PhD programmes starting in autumn 2027.
+In 2026–27 I am enrolled in the M2 in Quantitative Sociology and Computational Social Sciences at Institut Polytechnique de Paris, after a first master's year at Université Paris-Dauphine – PSL.
 
 Research interests: sociology of media and journalism; computational social science.
 
