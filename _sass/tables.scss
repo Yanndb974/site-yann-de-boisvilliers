@@ -1,34 +1,58 @@
-table {
-    margin: 15px 0;
-    border-collapse: collapse;
-    width: 100%;
-    padding: 0;
+/*
+ * Rows: a narrow rail on the left (portrait, dates, labels) and the text column on the right.
+ * Used for the news, talks, résumé and contact lists.
+ */
+
+.rows {
+  list-style: none;
+  margin: 0;
+  padding: 0;
 }
-table tr {
-    border-top: 1px solid var(--cell-border);
-    background-color: var(--paper);
-    margin: 0;
-    padding: 0;
+
+.row {
+  display: grid;
+  grid-template-columns: var(--rail) minmax(0, 1fr);
+  column-gap: var(--gutter);
+  margin-left: calc(-1 * (var(--rail) + var(--gutter)));
 }
-table tr:nth-child(2n) {
-    background-color: var(--stripe);
+
+.rows > .row + .row {
+  margin-top: 0.75rem;
 }
-table tr th {
-    font-weight: bold;
-    border: 1px solid var(--cell-border);
-    text-align: left;
-    margin: 0;
-    padding: 6px 13px;
+
+.rail {
+  color: var(--muted);
+  text-align: right;
+  font-variant-numeric: lining-nums tabular-nums;
 }
-table tr td {
-    border: 1px solid var(--cell-border);
-    text-align: left;
-    margin: 0;
-    padding: 6px 13px;
+
+.body > p:last-child {
+  margin-bottom: 0;
 }
-table tr th :first-child, table tr td :first-child {
-    margin: 0;
+
+dl.rows,
+dl.rows dt,
+dl.rows dd {
+  margin: 0;
 }
-table tr th :last-child, table tr td :last-child {
-    margin: 0;
+
+dl.rows dt {
+  font-style: normal;
+}
+
+/* Upcoming items: dates later than the last build get a small red dot, as on a recording light. */
+
+.upcoming .rail {
+  color: var(--ink);
+}
+
+.upcoming .rail::before {
+  content: "";
+  display: inline-block;
+  width: 0.42em;
+  height: 0.42em;
+  margin-right: 0.45em;
+  border-radius: 50%;
+  background: var(--signal);
+  vertical-align: 0.1em;
 }

@@ -1,7 +1,4 @@
-{%- comment -%}
-  Repère la photo et le CV déposés dans le dépôt (de préférence à la racine).
-  Définit photo_path et cv_path, vides tant que les fichiers sont absents.
-{%- endcomment -%}
+{%- comment -%} Sets photo_path and cv_path; each stays empty while the file is missing. {%- endcomment -%}
 {%- assign photo_path = "" -%}
 {%- assign cv_path = "" -%}
 {%- for f in site.static_files -%}

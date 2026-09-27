@@ -1,16 +1,27 @@
-/*
- * Customization Variables
- */
+/* Colours and layout measures. Dark values apply when the reader's system asks for them. */
 
-$accent: #E00D00;       // link colour (theme default: #FF0F00, darkened slightly for contrast)
-$accent-dark: #FF6A5E;  // link colour in dark mode
-$image-size: 140px;        // photo, écran large
-$image-size-small: 120px;  // photo, téléphone
+:root {
+  --paper: #ffffff;
+  --ink: #1f2430;
+  --muted: #697284;
+  --hair: #c9ced6;
+  --select: #dfe5ee;
+  --signal: #cf3a2b;
 
-/*
- * Build Variables, don't touch
- */
+  --rail: 7rem;
+  --gutter: 1.5rem;
+  --measure: 33rem;
 
-$max-width: 700px;
-$med-width: 600px;
-$small-width: 480px;
+  color-scheme: light dark;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --paper: #15181d;
+    --ink: #e5e7eb;
+    --muted: #9aa2af;
+    --hair: #4a515d;
+    --select: #2e3744;
+    --signal: #ff6152;
+  }
+}

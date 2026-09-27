@@ -1,0 +1,11 @@
+{%- assign now = site.time | date: "%s" | plus: 0 -%}
+{%- assign fmt = include.format | default: "%b %Y" -%}
+<ol class="rows">
+{%- for item in include.items %}
+  {%- assign t = item.date | date: "%s" | plus: 0 %}
+  <li class="row{% if t > now %} upcoming{% endif %}">
+    <time class="rail" datetime="{{ item.date | date: '%Y-%m-%d' }}">{% if t > now %}<span class="visually-hidden">Upcoming, </span>{% endif %}{{ item.date | date: fmt }}</time>
+    <div class="body">{{ item.text | markdownify }}</div>
+  </li>
+{%- endfor %}
+</ol>

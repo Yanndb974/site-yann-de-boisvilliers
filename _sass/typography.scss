@@ -1,60 +1,63 @@
-@import "vars";
+/* Type: EB Garamond throughout, as in the PDF résumé. */
 
-.content {
-    line-height: 1.45;
-    a:hover {
-        text-decoration: underline;
-    }
-    ol {
-        counter-reset: list;
-    }
-    ol > li {
-        list-style-position: none;
-        position: relative;
-        list-style: none;
-        margin-top: 5px;
-        margin-bottom: 5px;
-    }
-    ul > li {
-        margin: 5px 0 5px 0;
-    }
-    ul {
-        padding: 0 20px 0 20px;;
-    }
-    ol {
-        padding: 0 30px 0 30px;
-    }
-    ol > li:before {
-        content: "[" counter(list, decimal) "] ";
-        counter-increment: list;
-        position: absolute;
-        left: -30px;
-    }
-    blockquote {
-        //border: 1px solid black;
-        border-left: 5px solid var(--quote);
-        margin: 20px 0 20px 0;
-        padding: 2px 8px 2px 8px;
-        font-style: italic;
-    }
-    .profile-picture {
-        float: right;
-        width: $image-size;
-        height: $image-size;
-        margin: 4px 0 16px 24px;
-        border-radius: 50%;
-        object-fit: cover;          // recadre au lieu de déformer une photo non carrée
-        object-position: 50% 30%;   // garde le visage dans le cercle
-        @media (max-width: $small-width) {
-            float: none;
-            display: block;
-            width: $image-size-small;
-            height: $image-size-small;
-            margin: 0 auto 16px;
-        }
-    }
-    img {
-        text-align: center;
-        width: 100%;
-    }
+html {
+  font-size: 118.75%;
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: "EB Garamond", Garamond, "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
+  font-weight: 400;
+  line-height: 1.55;
+  font-kerning: normal;
+  font-variant-ligatures: common-ligatures no-contextual;
+  font-variant-numeric: lining-nums proportional-nums;
+  text-rendering: optimizeLegibility;
+}
+
+p {
+  margin: 0 0 0.8rem;
+}
+
+h1,
+h2 {
+  font-weight: 400;
+}
+
+h2 {
+  font-size: 1rem;
+  font-style: italic;
+  margin: 2.8rem 0 0.8rem;
+}
+
+.lede {
+  font-size: 1.3rem;
+  line-height: 1.36;
+  margin-bottom: 0.95rem;
+}
+
+a {
+  color: inherit;
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-decoration-color: var(--hair);
+  text-underline-offset: 0.2em;
+}
+
+a:hover {
+  text-decoration-color: currentColor;
+}
+
+a:focus-visible {
+  outline: 2px solid var(--ink);
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
+::selection {
+  background: var(--select);
 }

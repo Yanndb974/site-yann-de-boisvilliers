@@ -1,0 +1,20 @@
+---
+layout: default
+title: Research
+permalink: /research/
+description: "The Laudisi Observatory, a pipeline that records and analyses French continuous news channels, and related talks."
+---
+<p>Research interests: sociology of media and journalism; computational social science.</p>
+
+<section aria-labelledby="laudisi">
+  <h2 id="laudisi">The Laudisi Observatory</h2>
+  <p>I designed and maintain a pipeline that records, transcribes and analyses the output of French continuous news channels: stream capture, automatic speech recognition, speaker diarisation and OCR of on-screen banners. The first complete corpus covers March 2026, about 2,230 hours of broadcast.</p>
+  <p>The project examines agenda and framing dynamics across channels: how far they converge in the topics they cover and the words they use, which channel takes up a topic first, and who gets to speak on air, including the gap between how often women are seen and how often they are heard.</p>
+  <p>Methods: topic segmentation and clustering; sentence embeddings.</p>
+  <p><a href="https://github.com/{{ site.github_username }}/laudisi_observatory">Project description on GitHub</a></p>
+</section>
+
+<section aria-labelledby="talks">
+  <h2 id="talks">Talks</h2>
+  {% include timeline.html items=site.data.talks format="%-d %b %Y" %}
+</section>
