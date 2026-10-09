@@ -1,11 +1,21 @@
+{%- comment -%}
+Liste datée (actualités, communications). Paramètres :
+  items : liste de _data ; chaque entrée a `date`, `en`, `fr`, et éventuellement
+          `title` + `title_lang` (titre affiché en italique, dans sa langue) ;
+  day   : true pour afficher le jour.
+Une date postérieure au build reçoit la classe `upcoming` (point rouge).
+{%- endcomment -%}
+{%- assign t = site.data.i18n[page.lang] -%}
 {%- assign now = site.time | date: "%s" | plus: 0 -%}
-{%- assign fmt = include.format | default: "%b %Y" -%}
 <ol class="rows">
 {%- for item in include.items %}
-  {%- assign t = item.date | date: "%s" | plus: 0 %}
-  <li class="row{% if t > now %} upcoming{% endif %}">
-    <time class="rail" datetime="{{ item.date | date: '%Y-%m-%d' }}">{% if t > now %}<span class="visually-hidden">Upcoming, </span>{% endif %}{{ item.date | date: fmt }}</time>
-    <div class="body">{{ item.text | markdownify }}</div>
+  {%- assign ts = item.date | date: "%s" | plus: 0 %}
+  <li class="row{% if ts > now %} upcoming{% endif %}">
+    <time class="rail" datetime="{{ item.date | date: '%Y-%m-%d' }}">{% if ts > now %}<span class="visually-hidden">{{ t.upcoming }}</span>{% endif %}{% include date.html date=item.date day=include.day %}</time>
+    <div class="body">
+      {%- if item.title %}<p><cite{% if item.title_lang != page.lang %} lang="{{ item.title_lang }}"{% endif %}>{{ item.title }}</cite></p>{% endif -%}
+      {{ item[page.lang] | markdownify }}
+    </div>
   </li>
 {%- endfor %}
 </ol>

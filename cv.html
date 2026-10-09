@@ -1,13 +1,11 @@
 ---
-layout: default
-title: Resume
-permalink: /resume/
-description: "Education, research experience, awards and funding."
+ref: cv
+title: CV
+permalink: /cv/
+redirect_from: /resume/
+description: "Education, research experience, awards, funding and skills."
 ---
-{%- include files.html -%}
-{%- if cv_path != "" %}
-<p><a href="{{ cv_path | relative_url }}">Full resume (PDF, in English)</a></p>
-{%- endif %}
+<p class="download"><a href="{{ site.cv.en | relative_url }}" type="application/pdf">Download the full CV (PDF, 2 pages)</a> · <a href="{{ site.cv.fr | relative_url }}" type="application/pdf" hreflang="fr" lang="fr">version française</a></p>
 
 <section aria-labelledby="education">
   <h2 id="education">Education</h2>
@@ -34,4 +32,14 @@ description: "Education, research experience, awards and funding."
     <li class="row"><span class="rail">2026</span><div class="body"><p>Prix de la Recherche Impact Tank × L’Ascenseur, for the M1 thesis.</p></div></li>
     <li class="row"><span class="rail">2026</span><div class="body"><p>Mobility grant, Social Sciences Graduate Programme, <span class="nowrap">Université Paris-Dauphine – PSL</span>.</p></div></li>
   </ol>
+</section>
+
+<section aria-labelledby="skills">
+  <h2 id="skills">Skills</h2>
+  <dl class="rows">
+    <div class="row"><dt class="rail">Methods</dt><dd class="body">Stream capture, speech recognition, speaker diarisation, OCR; topic segmentation, unsupervised clustering; text analysis; digital ethnography</dd></div>
+    <div class="row"><dt class="rail">Programming</dt><dd class="body">Python, R, LaTeX; web scraping</dd></div>
+    <div class="row"><dt class="rail">Software</dt><dd class="body">QGIS, IRaMuTeQ, CorText, Gephi</dd></div>
+    <div class="row"><dt class="rail">Languages</dt><dd class="body">French (native), English (fluent)</dd></div>
+  </dl>
 </section>

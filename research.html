@@ -1,20 +1,41 @@
 ---
-layout: default
+ref: research
 title: Research
 permalink: /research/
-description: "The Laudisi Observatory, a pipeline that records and analyses French continuous news channels, and related talks."
+description: "The Laudisi Observatory, a pipeline that records and analyses French continuous news channels; theses, earlier projects and talks."
 ---
-<p>Research interests: sociology of media and journalism; computational social science.</p>
+<p class="lede">How do continuous news channels decide what counts as news, and who gets to speak about it?</p>
+<p>I work on the sociology of media and journalism with the methods of computational social science: large broadcast corpora, built and documented so that each measurement can be traced and reproduced.</p>
 
 <section aria-labelledby="laudisi">
   <h2 id="laudisi">The Laudisi Observatory</h2>
-  <p>I designed and maintain a pipeline that records, transcribes and analyses the output of French continuous news channels: stream capture, automatic speech recognition, speaker diarisation and OCR of on-screen banners. The first complete corpus covers March 2026, about 2,230 hours of broadcast.</p>
+  <p>A pipeline I designed and maintain to record, transcribe and analyse French continuous news channels: stream capture, automatic speech recognition, speaker diarisation and OCR of on-screen banners.</p>
+  <dl class="facts">
+    <div><dt>Channels</dt><dd>BFMTV, CNews, franceinfo and LCI: on-screen banners on all four, speech on the first three</dd></div>
+    <div><dt>First corpus</dt><dd>March 2026, about 2,230 hours of broadcast</dd></div>
+    <div><dt>Methods</dt><dd>Topic segmentation, unsupervised clustering, sentence embeddings</dd></div>
+    <div><dt>Code</dt><dd><a href="https://github.com/{{ site.github_username }}/laudisi_observatory">Project description on GitHub</a></dd></div>
+  </dl>
   <p>The project examines agenda and framing dynamics across channels: how far they converge in the topics they cover and the words they use, which channel takes up a topic first, and who gets to speak on air, including the gap between how often women are seen and how often they are heard.</p>
-  <p>Methods: topic segmentation and clustering; sentence embeddings.</p>
-  <p><a href="https://github.com/{{ site.github_username }}/laudisi_observatory">Project description on GitHub</a></p>
+</section>
+
+<section aria-labelledby="theses">
+  <h2 id="theses">Theses</h2>
+  <ol class="rows">
+    <li class="row"><span class="rail">In progress</span><div class="body"><p>Master’s (M2) thesis on the mediated construction of socially relevant reality on continuous news channels: professional routines, framing structures and news formats. Supervised by Marshall A. Taylor (ENSAE-CREST).</p></div></li>
+    <li class="row"><span class="rail">Mar 2026</span><div class="body"><p><cite lang="fr">L’Observatoire Laudisi&nbsp;: sociologie computationnelle de l’information en continu française</cite>. Master’s (M1) thesis, supervised by Samuel Bouron and Antoine Mazières (IRISSO). Prix de la Recherche Impact Tank × L’Ascenseur.</p></div></li>
+  </ol>
+</section>
+
+<section aria-labelledby="earlier">
+  <h2 id="earlier">Earlier projects</h2>
+  <ol class="rows">
+    <li class="row"><span class="rail">2025</span><div class="body"><p>Farming channels on YouTube: digital ethnography of farmer vloggers, brands and aesthetic creators, and text analysis of about two million comments. LISIS, with Baptiste Kotras and Sylvain Brunier.</p></div></li>
+    <li class="row"><span class="rail">2022–25</span><div class="body"><p>Bachelor’s research projects: the colonial dimension of knowledge relations in the chlordecone scandal in Martinique and Guadeloupe; the role of soil in urban development at Porte de Montreuil, Paris.</p></div></li>
+  </ol>
 </section>
 
 <section aria-labelledby="talks">
   <h2 id="talks">Talks</h2>
-  {% include timeline.html items=site.data.talks format="%-d %b %Y" %}
+  {% include timeline.html items=site.data.talks day=true %}
 </section>

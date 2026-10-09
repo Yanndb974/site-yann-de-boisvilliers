@@ -1,0 +1,26 @@
+# Libellés de l'interface. Chaque page porte `lang` et `ref` ; `ref` relie
+# une page à sa traduction (même `ref`, autre langue).
+en:
+  locale: en_GB
+  other: fr
+  switch: Français
+  skip: Skip to content
+  nav_label: Main
+  nav_items:
+    - { ref: research, title: Research }
+    - { ref: cv, title: CV }
+    - { ref: contact, title: Contact }
+  upcoming: "Upcoming, "
+  months: [Jan, Feb, Mar, Apr, May, Jun, Jul, Aug, Sep, Oct, Nov, Dec]
+fr:
+  locale: fr_FR
+  other: en
+  switch: English
+  skip: Aller au contenu
+  nav_label: Principale
+  nav_items:
+    - { ref: research, title: Recherche }
+    - { ref: cv, title: CV }
+    - { ref: contact, title: Contact }
+  upcoming: "À venir, "
+  months: [janv., févr., mars, avr., mai, juin, juil., août, sept., oct., nov., déc.]

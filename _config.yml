@@ -1,25 +1,46 @@
 title: Yann de Boisvilliers
 author: Yann de Boisvilliers
-description: "Master's student in sociology and computational social science at Institut Polytechnique de Paris. Research on French continuous news channels (the Laudisi Observatory)."
+url: "https://yanndb974.github.io"
 baseurl: "/site-yann-de-boisvilliers"
+
+# Une description par langue ; une page peut la remplacer par la sienne.
+description:
+  en: "Master's student in sociology and computational social science at Institut Polytechnique de Paris. Research on French continuous news channels (the Laudisi Observatory)."
+  fr: "Étudiant en master de sociologie et sciences sociales computationnelles à l'Institut Polytechnique de Paris. Recherches sur les chaînes d'information en continu (Observatoire Laudisi)."
 
 email: yann.deboisvilliers@psl.eu
 linkedin_username: yann-de-boisvilliers-875ab8275
 github_username: Yanndb974
 
-nav:
-  - title: Research
-    url: /research/
-  - title: Resume
-    url: /resume/
-  - title: Contact
-    url: /contact/
+# Fichiers publiés, chemins depuis la racine du site
+photo: /photo.jpg
+cv:
+  en: /cv.pdf
+  fr: /cv-fr.pdf
 
 markdown: kramdown
 sass:
   style: compressed
   sass_dir: _sass
 
+# Uniquement des plugins de la liste blanche de GitHub Pages
+plugins:
+  - jekyll-sitemap
+  - jekyll-redirect-from
+
+defaults:
+  - scope: { path: "" }
+    values: { layout: default, lang: en }
+  - scope: { path: "fr" }
+    values: { lang: fr }
+
 exclude:
   - README.md
+  - AGENTS.md
+  - SECURITY.md
   - LICENSE
+  - Gemfile
+  - Gemfile.lock
+  - vendor
+  - docs
+  - .github

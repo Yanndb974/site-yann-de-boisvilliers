@@ -87,6 +87,79 @@ main > .visually-hidden + * {
   margin-top: -0.3rem;
 }
 
+/* Quick links under the home introduction */
+
+.actions a + a {
+  margin-left: 1.1rem;
+}
+
+/* Key facts of a project (Research page): label rail, text column */
+
+.facts {
+  margin: 1.1rem 0 1.2rem;
+}
+
+.facts > div {
+  display: grid;
+  grid-template-columns: var(--rail) minmax(0, 1fr);
+  column-gap: var(--gutter);
+  margin-left: calc(-1 * (var(--rail) + var(--gutter)));
+  padding: 0.35rem 0;
+  border-top: 1px solid var(--hair);
+}
+
+.facts > div:last-child {
+  border-bottom: 1px solid var(--hair);
+}
+
+.facts dt {
+  color: var(--muted);
+  text-align: right;
+}
+
+.facts dd {
+  margin: 0;
+}
+
+.download {
+  margin-bottom: 0.4rem;
+}
+
+/* Language switch: last nav item, set apart by a hairline */
+
+.site-header .lang {
+  padding-left: 1.35rem;
+  border-left: 1px solid var(--hair);
+}
+
+.site-header nav a:focus-visible,
+.site-name:focus-visible {
+  color: var(--ink);
+}
+
+/* Footer */
+
+.site-footer {
+  margin-top: 4rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--hair);
+  padding-left: calc(var(--rail) + var(--gutter));
+  font-size: 0.9rem;
+}
+
+.site-footer p {
+  margin: 0 0 0.3rem;
+}
+
+.site-footer span {
+  color: var(--muted);
+  margin: 0 0.35rem;
+}
+
+.muted {
+  color: var(--muted);
+}
+
 /* Keeps institution names such as “Université Paris-Dauphine – PSL” on one line */
 
 .nowrap {
@@ -156,6 +229,25 @@ main > .visually-hidden + * {
 
   .rows > .row + .row {
     margin-top: 0.95rem;
+  }
+
+  .facts > div {
+    display: block;
+    margin-left: 0;
+  }
+
+  .facts dt {
+    text-align: left;
+    font-size: 0.9rem;
+  }
+
+  .site-footer {
+    padding-left: 0;
+  }
+
+  .site-header .lang {
+    padding-left: 0;
+    border-left: 0;
   }
 
   .portrait {

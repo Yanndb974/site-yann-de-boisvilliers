@@ -1,4 +1,12 @@
+# Communications. Le titre reste dans sa langue d'origine (title_lang) ;
+# seul le contexte est traduit. Les champs en/fr sont du Markdown.
 - date: 2026-11-30
-  text: '*Montrées plus qu’entendues&nbsp;? Mesurer en continu l’écart entre présence à l’écran et accès à la parole des femmes sur les chaînes d’information françaises.*{:lang="fr"} Study day <span lang="fr">«&nbsp;Mesurer la diversité de genre dans les contenus médiatiques&nbsp;: l’apport des sciences sociales computationnelles&nbsp;»</span>, Grenoble.'
+  title: "Montrées plus qu’entendues&nbsp;? Mesurer en continu l’écart entre présence à l’écran et accès à la parole des femmes sur les chaînes d’information françaises"
+  title_lang: fr
+  en: 'Study day <span lang="fr">«&nbsp;Mesurer la diversité de genre dans les contenus médiatiques&nbsp;: l’apport des sciences sociales computationnelles&nbsp;»</span>, Grenoble.'
+  fr: 'Journée d’étude «&nbsp;Mesurer la diversité de genre dans les contenus médiatiques&nbsp;: l’apport des sciences sociales computationnelles&nbsp;», Grenoble.'
 - date: 2026-09-09
-  text: '*The Laudisi Observatory: A computational pipeline for framing and agenda dynamics in French continuous news.* [Computational Humanities Research Group Seminar Series](https://www.kcl.ac.uk/events/series/computational-humanities-research-group-seminar-series), King’s College London (online).'
+  title: "The Laudisi Observatory: A computational pipeline for framing and agenda dynamics in French continuous news"
+  title_lang: en
+  en: '[Computational Humanities Research Group Seminar Series](https://www.kcl.ac.uk/events/series/computational-humanities-research-group-seminar-series), King’s College London (online).'
+  fr: '[<span lang="en">Computational Humanities Research Group Seminar Series</span>](https://www.kcl.ac.uk/events/series/computational-humanities-research-group-seminar-series), King’s College London (en ligne).'

@@ -1,52 +1,103 @@
 <!DOCTYPE html>
-<html lang="en">
+{%- assign t = site.data.i18n[page.lang] -%}
+{%- assign desc = page.description | default: site.description[page.lang] -%}
+{%- if page.title and page.ref != "home" -%}
+  {%- assign full_title = page.title | append: " · " | append: site.title -%}
+{%- else -%}
+  {%- assign full_title = site.title -%}
+{%- endif -%}
+{%- assign home = site.pages | where: "ref", "home" | where: "lang", page.lang | first -%}
+{%- assign translation = nil -%}
+{%- if page.ref -%}
+  {%- assign translation = site.pages | where: "ref", page.ref | where: "lang", t.other | first -%}
+{%- endif -%}
+{%- unless translation -%}
+  {%- assign translation = site.pages | where: "ref", "home" | where: "lang", t.other | first -%}
+{%- endunless %}
+<html lang="{{ page.lang }}">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  {%- include files.html -%}
-  {%- assign desc = page.description | default: site.description -%}
-  {%- if page.title -%}
-    {%- assign full_title = page.title | append: " | " | append: site.title -%}
-  {%- else -%}
-    {%- assign full_title = site.title -%}
-  {%- endif %}
+  {%- comment -%}
+  GitHub Pages ne permet pas d'envoyer d'en-têtes HTTP : la politique de
+  sécurité passe par <meta>. Le site n'exécute aucun script.
+  {%- endcomment %}
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'none'; style-src 'self'; img-src 'self'; font-src 'self'; object-src 'none'; base-uri 'self'; form-action 'none'; upgrade-insecure-requests">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
   <title>{{ full_title }}</title>
-  <meta name="description" content="{{ desc | escape }}">
+  <meta name="description" content="{{ desc | strip_html | escape }}">
   <meta name="author" content="{{ site.author }}">
   <meta name="color-scheme" content="light dark">
   <link rel="canonical" href="{{ page.url | absolute_url }}">
+  {%- if page.ref %}
+  {%- assign versions = site.pages | where: "ref", page.ref %}
+  {%- for v in versions %}
+  <link rel="alternate" hreflang="{{ v.lang }}" href="{{ v.url | absolute_url }}">
+  {%- if v.lang == "en" %}
+  <link rel="alternate" hreflang="x-default" href="{{ v.url | absolute_url }}">
+  {%- endif %}
+  {%- endfor %}
+  {%- endif %}
   <link rel="icon" href="{{ '/favicon.svg' | relative_url }}" type="image/svg+xml">
   <link rel="icon" href="{{ '/favicon.png' | relative_url }}" type="image/png" sizes="32x32">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;1,400&amp;display=swap">
+  <link rel="preload" href="{{ '/assets/fonts/eb-garamond-latin-400-normal.woff2' | relative_url }}" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="{{ '/css/main.css' | relative_url }}">
-  <meta property="og:type" content="profile">
+  <meta property="og:type" content="{% if page.ref == 'home' %}profile{% else %}website{% endif %}">
+  <meta property="og:site_name" content="{{ site.title }}">
+  <meta property="og:locale" content="{{ t.locale }}">
   <meta property="og:title" content="{{ full_title }}">
-  <meta property="og:description" content="{{ desc | escape }}">
+  <meta property="og:description" content="{{ desc | strip_html | escape }}">
   <meta property="og:url" content="{{ page.url | absolute_url }}">
-  {%- if photo_path != "" %}
-  <meta property="og:image" content="{{ photo_path | absolute_url }}">
-  {%- endif %}
+  <meta property="og:image" content="{{ site.photo | absolute_url }}">
+  <meta property="og:image:width" content="800">
+  <meta property="og:image:height" content="1000">
+  <meta property="og:image:alt" content="{% if page.lang == 'fr' %}Portrait de {% else %}Portrait of {% endif %}{{ site.author }}">
   <meta name="twitter:card" content="summary">
+  {%- if page.ref == "home" %}
+  <script type="application/ld+json">
+  {"@context": "https://schema.org", "@type": "Person",
+   "name": {{ site.author | jsonify }},
+   "url": {{ home.url | absolute_url | jsonify }},
+   "image": {{ site.photo | absolute_url | jsonify }},
+   "affiliation": {"@type": "CollegeOrUniversity", "name": "Institut Polytechnique de Paris"},
+   "knowsAbout": ["Sociology of media", "Sociology of journalism", "Computational social science"],
+   "sameAs": ["https://www.linkedin.com/in/{{ site.linkedin_username }}", "https://github.com/{{ site.github_username }}"]}
+  </script>
+  {%- endif %}
 </head>
 <body>
-  <a class="skip" href="#content">Skip to content</a>
+  <a class="skip" href="#content">{{ t.skip }}</a>
   <div class="page">
     <header class="site-header">
-      <a class="site-name" href="{{ '/' | relative_url }}">{{ site.title }}</a>
-      <nav aria-label="Main">
+      <a class="site-name" href="{{ home.url | relative_url }}"{% if page.ref == "home" %} aria-current="page"{% endif %}>{{ site.title }}</a>
+      <nav aria-label="{{ t.nav_label }}">
         <ul>
-        {%- for item in site.nav %}
-          <li><a href="{{ item.url | relative_url }}"{% if page.url == item.url %} aria-current="page"{% endif %}>{{ item.title }}</a></li>
+        {%- for item in t.nav_items %}
+          {%- assign target = site.pages | where: "ref", item.ref | where: "lang", page.lang | first %}
+          <li><a href="{{ target.url | relative_url }}"{% if page.ref == item.ref %} aria-current="page"{% endif %}>{{ item.title }}</a></li>
         {%- endfor %}
+          <li class="lang"><a href="{{ translation.url | relative_url }}" hreflang="{{ t.other }}" lang="{{ t.other }}">{{ t.switch }}</a></li>
         </ul>
       </nav>
     </header>
     <main id="content">
+      {%- if page.ref == "home" or page.hide_title %}
       <h1 class="visually-hidden">{{ page.title | default: site.title }}</h1>
+      {%- else %}
+      <h1>{{ page.title }}</h1>
+      {%- endif %}
       {{ content }}
     </main>
+    <footer class="site-footer">
+      <p>
+        <a href="mailto:{{ site.email }}">{{ site.email }}</a>
+        <span aria-hidden="true">·</span>
+        <a href="https://github.com/{{ site.github_username }}">GitHub</a>
+        <span aria-hidden="true">·</span>
+        <a href="https://www.linkedin.com/in/{{ site.linkedin_username }}">LinkedIn</a>
+      </p>
+      <p class="muted">{% if page.lang == "fr" %}Mis à jour le{% else %}Updated{% endif %} <time datetime="{{ site.time | date: '%Y-%m-%d' }}">{% include date.html date=site.time day=true %}</time></p>
+    </footer>
   </div>
 </body>
 </html>
