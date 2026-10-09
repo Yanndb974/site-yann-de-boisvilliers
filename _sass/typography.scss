@@ -54,11 +54,14 @@ h2 {
   font-weight: 400;
 }
 
-/* Page title: same size as the lede, so it orients without shouting. */
+/* Page title: a small running head above the lede. It orients the reader
+   without competing with the opening sentence, which carries the content. */
 h1 {
-  font-size: 1.3rem;
+  font-size: 1rem;
+  font-weight: 500;
   line-height: 1.3;
-  margin: 0 0 1.4rem;
+  letter-spacing: 0.01em;
+  margin: 0 0 0.9rem;
 }
 
 cite {
