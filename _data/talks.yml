@@ -1,5 +1,8 @@
 # Communications. Le titre reste dans sa langue d'origine (title_lang) ;
 # seul le contexte est traduit. Les champs en/fr sont du Markdown.
+- date: 2026-12-03
+  en: '[AI & NLP Workshop](https://acss-dig.psl.eu/fr/seminaires/nlp), ACSS-PSL Institute (online).'
+  fr: '[Atelier IA & NLP](https://acss-dig.psl.eu/fr/seminaires/nlp), Institut ACSS-PSL (en ligne).'
 - date: 2026-11-30
   title: "Montrées plus qu’entendues&nbsp;? Mesurer en continu l’écart entre présence à l’écran et accès à la parole des femmes sur les chaînes d’information françaises"
   title_lang: fr
