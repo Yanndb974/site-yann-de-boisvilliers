@@ -5,5 +5,5 @@ gem "github-pages", group: :jekyll_plugins
 gem "webrick"          # serveur local (Ruby 3 ne l'inclut plus)
 
 group :test do
-  gem "html-proofer", "~> 5.0"
+  gem "html-proofer", "~> 5.2"
 end
